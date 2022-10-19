@@ -18,7 +18,15 @@
             </div>
         {% endif %}
         <!-- 오류 표시 end -->
-        {% bootstrap_form form %}
+        <table>
+            {% bootstrap_form form %}
+
+        </table>
+        <div>
+            {{ label }}
+            {{ form.media }}
+
+        </div>
         <button type="submit" class="btn btn-primary">저장하기</button>
     </form>
 </div>

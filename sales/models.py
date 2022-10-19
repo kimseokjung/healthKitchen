@@ -1,6 +1,7 @@
 from django.db import models
-from django.conf import settings
 from django.utils import timezone
+
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 def articles_image_path(instance, filename):
@@ -14,6 +15,7 @@ class Product(models.Model):
     imgfile = models.ImageField(null=True, upload_to="images/", blank=True)
     unitprice = models.IntegerField()
     discountrate = models.DecimalField(max_digits=11, decimal_places=2)
+    description = RichTextUploadingField(blank=True, null=True)
     create_date = models.DateTimeField(null=True)
 
     def publish(self):

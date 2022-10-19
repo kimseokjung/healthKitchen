@@ -2,14 +2,21 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Product
 from .form import ProductForm
+from django.core.paginator import Paginator
 
 
 def index(request):
     """
     sales 목록 출력
     """
-    product_list = Product.objects.order_by('pcode')
-    context = {'product_list': product_list}
+    # 입력 인자
+    page = request.GET.get('page', '1') # 페이지
+    # 조회
+    product_list = Product.objects.order_by('-create_date')
+    paginator = Paginator(product_list, 9)  # 9개씩 페이지 보여 주기
+    page_obj = paginator.get_page(page)
+
+    context = {'product_list': page_obj}
     return render(request, 'sales/product_list.html', context)
 
 

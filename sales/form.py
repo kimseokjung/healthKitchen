@@ -1,5 +1,6 @@
 from django import forms
 from sales.models import Product
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class ProductForm(forms.ModelForm):
@@ -26,9 +27,10 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['pcode', 'pname', 'imgfile', 'unitprice', 'discountrate']
+        fields = ['pcode', 'pname', 'imgfile', 'unitprice', 'discountrate', 'description']
         labels = {
-            'imgfile': '이미지',
+            'imgfile': '샘플 이미지',
             'unitprice': '가격',
             'discountrate': '할인율',
+            'description': '상세 내용',
         }
