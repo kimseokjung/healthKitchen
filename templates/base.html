@@ -1,5 +1,5 @@
-{% load static %}
 {% load bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,13 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
     <!-- sales CSS -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="{% static 'signin.css' %}" rel="stylesheet">
     <!-- Bootstrap CSS -->
+    {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
-
     <title>Hello</title>
     {% include "navbar.html" %}
 </head>
@@ -31,4 +30,7 @@
     {% endblock %}
     <!-- 자바스크립트 End -->
 </body>
+<footer>
+    <div class="mt-5"></div>
+</footer>
 </html>

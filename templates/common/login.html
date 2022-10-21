@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="signin form-signin w-100 m-auto mt-5">
+  <form method="post" class="post-form" action="{% url 'common:login' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% include "form_errors.html" %}
+    <h1 class="h3 mb-3 fw-normal mt-5">Please sign in</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" name="username" id="username" placeholder="enter your ID">
+      <label for="username">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      <label for="password">Password</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+  </form>
+  <a class="w-100 btn btn-lg btn-outline-primary mt-3" href="{% url 'common:signup' %}">Sign up</a>
+</div>
+{% endblock %}
+
+<!--<div class="container my-3">-->
+<!--    <div class="row">-->
+<!--        <div class="col-4">-->
+<!--            <h4>로그인</h4>-->
+<!--        </div>-->
+<!--        <div class="col-8 text-end">-->
+<!--            <span>-->
+<!--                또는 <a href="{% url 'common:signup' %}">계정을 만드세요.</a>-->
+<!--            </span>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <form method="post" class="post-form" action="{% url 'common:login' %}">-->
+<!--        {% csrf_token %}-->
+
+<!--        <div class="form-group">-->
+<!--            <label for="username">사용자ID</label>-->
+<!--            <input type="text" class="form-control" name="username" id="username"-->
+<!--            value="{{ form.username.value|default_if_none:'' }}">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="password">비밀번호</label>-->
+<!--            <input type="password" class="form-control" name="password" id="password"-->
+<!--            value="{{ form.password.value|default_if_none:'' }}">-->
+<!--        </div>-->
+<!--        <button type="submit" class="btn btn-primary mt-3">로그인</button>-->
+<!--    </form>-->
+<!--</div>-->

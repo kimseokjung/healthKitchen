@@ -1,0 +1,26 @@
+.center {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+.image-back{
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../static/images/main.jpg");
+    background-size: cover;
+}
+.image-sub1{
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("../static/images/sub1.jpg");
+    background-size: cover;
+}
+.wrapper {
+  width: 100%;
+  height: 500px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

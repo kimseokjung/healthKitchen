@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-4" style="margin-top:80px;">
+  <div class="p-5 mb-4 rounded-3 image-back">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 text-dark fw-bold">몸이 가벼워지는 시간</h1>
+      <p class="col-md-8 fs-4 mt-3">기운찬 하루를 위해</p>
+      <p class="col-md-8 fs-4">샐러드로 건강한 한끼를 시작해 보세요</p>
+    </div>
+  </div>
+
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6">
+      <div class="h-100 p-5 text-bg-dark rounded-3">
+        <h2>단탄지 벨런스</h2>
+        <p>단백질, 지방, 탄수화물의 벨런스를 고려해 항상 영양성분 맞춰서 제작합니다.</p>
+        <a class="btn btn-primary btn-lg mt-3" href="{% url 'sales:product_list' %}">Buy salad</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="h-300 p-5 bg-light border rounded-3 image-sub1"  style="height:320px;">
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

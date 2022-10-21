@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -10,6 +11,7 @@ def articles_image_path(instance, filename):
 
 
 class Product(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     pcode = models.CharField(max_length=10)
     pname = models.TextField(max_length=40, null=True)
     imgfile = models.ImageField(null=True, upload_to="images/", blank=True)
