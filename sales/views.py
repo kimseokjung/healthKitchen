@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Product
+from .models import Product,Sales
 from .form import ProductForm
 from django.core.paginator import Paginator
 from django.contrib import messages
+from django.forms.models import model_to_dict
 
 
 def index(request):
@@ -91,7 +92,20 @@ def product_delete(request, product_id):
     return redirect('sales:product_list')
 
 
+def stats(request):
+    """
+    총계 출력 목록 출력
+    """
 
+    # 조회
+    sales_data = Sales.objects.order_by('-id')
+    total = 0
+    for i in sales_data:
+        temp = model_to_dict(i)
+        total += temp['amt']
+
+    context = {'sales_list': sales_data, 'total': total}
+    return render(request, 'sales_sample.html', context)
 
 
 

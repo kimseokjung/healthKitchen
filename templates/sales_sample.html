@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="margin-top:80px;">
+    <div class="my-3 container">
+        <select name="find" >
+            <option value="a">세무 조사용</option>
+            <option value="a">주주 총회용</option>
+        </select>
+    </div>
+    <table class="table table-sm">
+        <thead class="table-dark align-middle " style="height:50px;">
+            <tr class="text-center">
+                <th>상품 코드</th>
+                <th>상품명</th>
+                <th>구매일</th>
+                <th>개수</th>
+                <th>총 판매액</th>
+            </tr>
+        <thead>
+        <tbody>
+            {% for sales in sales_list %}
+            {{ temp|add:sales.amt }}
+            <tr class="text-center">
+                <td>{{ sales.scode }}</td>
+                <td>{{ sales.sname }}</td>
+                <td>{{ sales.sales_date }}</td>
+                <td>{{ sales.qty }}</td>
+                <td class="text-end pe-2">{{ sales.amt|floatformat:"0g" }}원</td>
+            </tr>
+            {% endfor %}
+            <tr><td colspan="5"></td></tr>
+            <tr class="text-end fw-bold"><td>판매금액합계</td>
+                <td colspan=3></td>
+                <td class="pe-2">{{ total|floatformat:"0g" }}원</td>
+            </tr>
+    </table>
+    <form class="row justify-content-center my-3">
+        <div class="col-4 input-group w-200">
+            <input type="text" class="form-control kw">
+            <div class="input-group-append ">
+                <button class="btn btn-outline-secondary " type="submit" id="btn_search">검색</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -26,3 +26,26 @@ class Product(models.Model):
 
     def __str__(self):
         return self.pcode + " " + self.pname + " " + str(self.unitprice) + " " + str(self.discountrate)
+
+
+class Sales(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    scode = models.CharField(max_length=10)
+    sname = models.TextField(max_length=40, null=True)
+    qty = models.IntegerField()
+    amt = models.DecimalField(max_digits=12, decimal_places=2)
+    sales_date = models.DateTimeField(null=True)
+    def __str__(self):
+        return self.scode + " " + self.sname + " " + str(self.qty) + " " + str(self.amt)
+
+
+class Sales2(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    scode = models.CharField(max_length=10)
+    sname = models.TextField(max_length=40, null=True)
+    qty = models.IntegerField()
+    amt = models.DecimalField(max_digits=12, decimal_places=2)
+    sales_date = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return self.scode + " " + self.sname + " " + str(self.qty) + " " + str(self.amt)
